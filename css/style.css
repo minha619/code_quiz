@@ -2,3 +2,26 @@ h1{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+p{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+#start{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#start, #start-btn{
+    margin: 20px;
+}
+
+
+#quiz-over{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

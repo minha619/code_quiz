@@ -1,28 +1,28 @@
-var questions = [
+var codeQuestions = [
     {
-        question: "1.Waht does HTML stand for",
+        question: "1.What does HTML stand for",
         answers: {
             a: "Hyperlinks and Text Markup Language",
             b: "Hyper Text Markup Language",
-            c: "Home Tool Markup Language"
+            c: "Home Tool Markup Language" 
         },
         correctAnswer: "a"
     },
     {
         question: "2.Choose the correct HTML element to define important text",
         answers: {
-            a: "<b>",
-            b: "<strong>",
-            c: "<important>"
+            a: "&lt;b&gt;",
+            b: "&lt;strong&gt;",
+            c: "&lt;important&gt;"
         },
         correctAnswer: "b"
     },
     {
         question: "3.How can you make a numbered list?",
         answers: {
-            a: "<ol>",
-            b: "<list>",
-            c: "<ul>"
+            a: "&lt;ol&gt;",
+            b: "&lt;list&gt;",
+            c: "&lt;ul&gt;"
         },
         correctAnswer: "a"
     },
@@ -46,7 +46,7 @@ var questions = [
     },
     {
         question: "6.Which CSS property controls the text size?",
-        answer: {
+        answers: {
             a: "text-size",
             b: "text-style",
             c: "font-size"
@@ -55,7 +55,7 @@ var questions = [
     },
     {
         question: "7.How do you select elements with class name 'test'?",
-        answer: {
+        answers: {
             a: "#test",
             b: ".test",
             c: "*test"
@@ -64,7 +64,7 @@ var questions = [
     },
     {
         question: "8.Where is the correct place to insert a JavaScript?",
-        answer: {
+        answers: {
             a: "Both the <head> section and the <body> section are correct",
             b: "The <head> section",
             c: "The <body> section"
@@ -73,7 +73,7 @@ var questions = [
     },
     {
         question: '9.How do you write "Hello World" in an alert box?',
-        answer: {
+        answers: {
             a: 'alertBox("Hello World");',
             b: 'alert("Hello Wrold")',
             c: 'msg("Hello World")'
@@ -82,7 +82,7 @@ var questions = [
     },
     {
         question: "10.What is the correct way to write a JavaScript array?",
-        answer: {
+        answers: {
             a: 'var colors = ["red", "green", "blue"]',
             b: 'var colors = (1:"red", 2:"green", 3:"blue")',
             c: 'var colors = "red", "green", "blue"'
@@ -92,47 +92,31 @@ var questions = [
 ]
 
 
+var quizDiv = document.getElementById('quiz')
+quizDiv.style.display = "none";
+
+
+var startDiv = document.getElementById('start')
+startDiv.style.display = "block";
 
 
 
 
-// function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+var currentQuestionIndex = 0;
+var renderQuestion = function (index) {
 
-// 	function showQuestions(questions, quizContainer){
-// 		// code will go here
-// 	}
+    var codeQuiz = document.getElementById('question')
+    codeQuiz.innerHTML = codeQuestions[index].question
 
-// 	function showResults(questions, quizContainer, resultsContainer){
-// 		// code will go here
-// 	}
+    var answerChoice = document.getElementById('a')
+    answerChoice.innerHTML = codeQuestions[index].answers.a
 
-// 	// show the questions
-// 	showQuestions(questions, quizContainer);
+    var answerChoice = document.getElementById('b')
+    answerChoice.innerHTML = codeQuestions[index].answers.b
 
-// 	// when user clicks submit, show results
-// 	submitButton.onclick = function(){
-// 		showResults(questions, quizContainer, resultsContainer);
-// 	}
-// }
+    var answerChoice = document.getElementById('c')
+    answerChoice.innerHTML = codeQuestions[index].answers.c
 
+}
+renderQuestion(currentQuestionIndex);
 
-// var myQuestions = [
-// 	{
-// 		question: "What is 10/2?",
-// 		answers: {
-// 			a: '3',
-// 			b: '5',
-// 			c: '115'
-// 		},
-// 		correctAnswer: 'b'
-// 	},
-// 	{
-// 		question: "What is 30/3?",
-// 		answers: {
-// 			a: '3',
-// 			b: '5',
-// 			c: '10'
-// 		},
-// 		correctAnswer: 'c'
-// 	}
-// ];
