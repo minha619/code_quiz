@@ -20,6 +20,15 @@ p{
     margin: 20px;
 }
 
+#questions{
+    text-align: center;
+}
+
+#question{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 40px auto 20px auto;
+}
 
 #quiz-over{
     text-align: center;
