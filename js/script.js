@@ -95,8 +95,8 @@ var codeQuestions = [
 var quizDiv = document.getElementById('quiz')
 quizDiv.style.display = "none";
 
-var noTime = document.getElementById('quiz-over')
-noTime.style.display = "none";
+var quizOver = document.getElementById('quiz-over')
+quizOver.style.display = "none";
 
 var quizComplete = document.getElementById('quiz-complete')
 quizComplete.style.display = "none";
@@ -111,20 +111,20 @@ var timer = document.getElementById('timer');
 timer.innerHTML = time;
 var time = 150;
 
-window.onlick = onClick
-function onClick() {
+var timeIntervalId;
+function onclick() {
     startDiv.style.display = "none";
     playerScore.style.display = "none";
     quizDiv.style.display = "block";
 
 
-    setInterval(function () {
+    timeIntervalId = setInterval(function () {
         time = time - 1;
         if (time <= 0) {
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            playerScore.style.display = "none";
-            noTime.style.display = "block";
+            playerScore.style.display = "block";
+            quizOver.style.display = "block";
 
         } else {
             timer.innerHTML = time;
@@ -132,8 +132,10 @@ function onClick() {
     }, 1000);
 }
 
+
+
 var startBtn = document.getElementById('start-btn')
-startBtn.addEventListener('click', onClick)
+startBtn.addEventListener('click', onclick)
 
 
 var currentQuestionIndex = 0;
@@ -164,27 +166,33 @@ var correctChoiceA = function () {
 
     if (correctAnswer === 'a') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        alert("Correct!");
         score++;
+
         if (codeQuestions.length === currentQuestionIndex) {
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
             quizDiv.style.display = "none";
             timer.style.display = "none";
-
         } else {
             renderQuestion(currentQuestionIndex);
         }
 
     } else {
         time = time - 10;
-        score--;
-        if (time <= 0) {
+        alert("Wrong!");
+        currentQuestionIndex = currentQuestionIndex + 1;
+
+        if (time <= 0 || codeQuestions.length === currentQuestionIndex) {
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            noTime.style.display = "block";
+            quizOver.style.display = "block";
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
+        } else {
+            renderQuestion(currentQuestionIndex);
         }
+        
     }
     quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
 }
@@ -194,7 +202,9 @@ var correctChoiceB = function () {
 
     if (correctAnswer === 'b') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        alert("Correct!");
         score++;
+
         if (codeQuestions.length === currentQuestionIndex) {
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
@@ -207,13 +217,17 @@ var correctChoiceB = function () {
 
     } else {
         time = time - 10;
-        score--;
-        if (time <= 0) {
+        alert("Wrong!");
+        currentQuestionIndex = currentQuestionIndex + 1;
+
+        if (time <= 0 || codeQuestions.length === currentQuestionIndex) {
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            noTime.style.display = "block";
+            quizOver.style.display = "block";
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
+        } else {
+            renderQuestion(currentQuestionIndex);
         }
     }
     quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
@@ -224,7 +238,9 @@ var correctChoiceC = function () {
 
     if (correctAnswer === 'c') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        alert("Correct!");
         score++;
+
         if (codeQuestions.length === currentQuestionIndex) {
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
@@ -233,18 +249,21 @@ var correctChoiceC = function () {
 
         } else {
             renderQuestion(currentQuestionIndex);
-
         }
 
     } else {
         time = time - 10;
-        score--;
-        if (time <= 0) {
+        alert("Wrong!");
+        currentQuestionIndex = currentQuestionIndex + 1;
+        
+        if (time <= 0 || codeQuestions.length === currentQuestionIndex) {
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            noTime.style.display = "block";
+            quizOver.style.display = "block";
             quizComplete.style.display = "block";
             playerScore.style.display = "block";
+        } else {
+            renderQuestion(currentQuestionIndex);
         }
     }
     quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
@@ -253,5 +272,6 @@ var correctChoiceC = function () {
 correctBtnA.addEventListener('click', correctChoiceA);
 correctBtnB.addEventListener('click', correctChoiceB);
 correctBtnC.addEventListener('click', correctChoiceC);
+
 
 
