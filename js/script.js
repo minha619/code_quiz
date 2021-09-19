@@ -149,7 +149,7 @@ var renderQuestion = function (index) {
 }
 renderQuestion(currentQuestionIndex);
 
-
+var score = 0;
 var correctBtnA = document.getElementById('a');
 var correctBtnB = document.getElementById('b');
 var correctBtnC = document.getElementById('c');
@@ -159,14 +159,14 @@ var correctChoiceA = function () {
 
     if (correctAnswer === 'a') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        score++;
         if (codeQuestions.length === currentQuestionIndex){
-            var finishedTime = time;
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
 
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            quizComplete.style.display = "block";
 
-            quizComplete.innerHTML = finishedTime;
         }  else {
             renderQuestion(currentQuestionIndex);
         }
@@ -177,6 +177,8 @@ var correctChoiceA = function () {
             quizDiv.style.display = "none";
             timer.style.display = "none";
             noTime.style.display = "block";
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
         }
     }
 }
@@ -186,14 +188,13 @@ var correctChoiceB = function () {
 
     if (correctAnswer === 'b') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        score++;
         if (codeQuestions.length === currentQuestionIndex){
-            var finishedTime = time;
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
 
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            quizComplete.style.display = "block";
-
-            quizComplete.innerHTML = finishedTime;
         }else {
             renderQuestion(currentQuestionIndex);
         }
@@ -205,6 +206,8 @@ var correctChoiceB = function () {
             quizDiv.style.display = "none";
             timer.style.display = "none";
             noTime.style.display = "block";
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
         }
     }
 }
@@ -214,14 +217,14 @@ var correctChoiceC = function () {
 
     if (correctAnswer === 'c') {
         currentQuestionIndex = currentQuestionIndex + 1;
+        score++;
         if (codeQuestions.length === currentQuestionIndex){
-            var finishedTime = time;
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
 
             quizDiv.style.display = "none";
             timer.style.display = "none";
-            quizComplete.style.display = "block";
 
-            quizComplete.innerHTML = finishedTime;
         } else {
             renderQuestion(currentQuestionIndex);
 
@@ -233,6 +236,8 @@ var correctChoiceC = function () {
             quizDiv.style.display = "none";
             timer.style.display = "none";
             noTime.style.display = "block";
+            quizComplete.style.display = "block";
+            quizComplete.textContent = 'You scored ' + score + '/' + codeQuestions.length;
         }
     }
 }
@@ -240,3 +245,5 @@ var correctChoiceC = function () {
 correctBtnA.addEventListener('click', correctChoiceA);
 correctBtnB.addEventListener('click', correctChoiceB);
 correctBtnC.addEventListener('click', correctChoiceC);
+
+
