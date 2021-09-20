@@ -90,7 +90,7 @@ var codeQuestions = [
         correctAnswer: "a"
     }
 ]
-
+var savedScores = document.getElementById('saved-scores')
 
 var quizDiv = document.getElementById('quiz')
 quizDiv.style.display = "none";
@@ -108,8 +108,9 @@ var startDiv = document.getElementById('start')
 startDiv.style.display = "block";
 
 var timer = document.getElementById('timer');
-timer.innerHTML = time;
 var time = 150;
+timer.innerHTML = time;
+
 
 var timeIntervalId;
 function onclick() {
@@ -272,6 +273,3 @@ var correctChoiceC = function () {
 correctBtnA.addEventListener('click', correctChoiceA);
 correctBtnB.addEventListener('click', correctChoiceB);
 correctBtnC.addEventListener('click', correctChoiceC);
-
-
-

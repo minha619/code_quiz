@@ -1,11 +1,13 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h1{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 p{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 50%;
     margin: 0 auto;
 }
@@ -13,7 +15,6 @@ p{
 
 #start{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #start, #start-btn{
@@ -26,23 +27,29 @@ p{
 
 #question{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 40px auto 20px auto;
 }
 
-#quiz-over{
+#quiz-over, #time-over{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#quiz-over{
+    text-align: left;
 }
 
 #quiz-complete{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 40px auto 0 auto;
 }
 
-#player-score, form{
+#player-score{
     margin-top: 20px;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#saved-scores ol{
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
