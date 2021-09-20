@@ -90,6 +90,22 @@ var codeQuestions = [
         correctAnswer: "a"
     }
 ]
+
+var appName = 'quiz-app';
+
+const savedPlayerList = localStorage.getItem(appName);
+if (savedPlayerList !== null) {
+    const parsed = JSON.parse(savedPlayerList);
+
+    var savedScoreOl = document.getElementById('saved-scores');
+    for (var i = 0; i < parsed.length; i++) {
+        var nameScore = parsed[i];
+        var li = document.createElement('li');
+        li.innerHTML = nameScore.name + " : " + nameScore.score;
+        savedScoreOl.appendChild(li);
+    }
+}
+
 var savedScores = document.getElementById('saved-scores')
 
 var quizDiv = document.getElementById('quiz')
@@ -108,7 +124,7 @@ var startDiv = document.getElementById('start')
 startDiv.style.display = "block";
 
 var timer = document.getElementById('timer');
-var time = 150;
+var time = 100;
 timer.innerHTML = time;
 
 
@@ -273,3 +289,39 @@ var correctChoiceC = function () {
 correctBtnA.addEventListener('click', correctChoiceA);
 correctBtnB.addEventListener('click', correctChoiceB);
 correctBtnC.addEventListener('click', correctChoiceC);
+
+
+function submitOnclick() {
+    var playerName = document.getElementById("player-name").value;
+    var savedPalyerList = [];
+
+    var playerListStr = localStorage.getItem(appName);
+    if (playerListStr !== null) {
+        savedPalyerList = JSON.parse(playerListStr);
+        savedPalyerList.push({
+            name: playerName,
+            score: score + '/' + codeQuestions.length
+        });
+    } else {
+        savedPalyerList = [{
+            name: playerName,
+            score: score + '/' + codeQuestions.length
+        }];
+    }
+
+    const json = JSON.stringify(savedPalyerList);
+    localStorage.setItem(appName, json);
+
+
+    var savedScoreOl = document.getElementById('saved-scores');
+    savedScoreOl.innerHTML = '';
+    for (var i = 0; i < savedPalyerList.length; i++) {
+        var nameScore = savedPalyerList[i];
+        var li = document.createElement('li');
+        li.innerHTML = nameScore.name + " : " + nameScore.score;
+        savedScoreOl.appendChild(li);
+    }
+}
+
+var submit = document.getElementById('submit');
+submit.addEventListener('click', submitOnclick);
